@@ -40,7 +40,7 @@ public class ToDoListController {
     }
 
     @PostMapping("status/{toDoItemNo}")
-    public String done(@PathVariable Long toDoItemNo, Model model){
+    public String done(@PathVariable Long toDoItemNo){
         ToDoItem toDoItem = toDoRepository.findByNo(toDoItemNo);
         toDoItem.setStatus(!toDoItem.getStatus());
         return "redirect:/basic/toDoItems";
