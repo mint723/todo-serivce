@@ -5,11 +5,10 @@ import lombok.Data;
 @Data
 public class ToDoItem {
     private Long no;
-    private String content;
-    private Character status;
+    private String context;
+    private Boolean status;
 
-    public ToDoItem(String content, Character status) {
-        this.content = content;
-        this.status = status;
+    public ToDoItem(String context) {
+        this.context = context;
     }
 }

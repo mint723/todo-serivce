@@ -24,9 +24,9 @@ class ToDoRepositoryTest {
     @Test
     @DisplayName("저장소 확인")
     void repositoryCheck() {
-        ToDoItem toDoItem1 = new ToDoItem("1", 'N');
-        ToDoItem toDoItem2 = new ToDoItem("2", 'N');
-        ToDoItem toDoItem3 = new ToDoItem("3", 'N');
+        ToDoItem toDoItem1 = new ToDoItem("1");
+        ToDoItem toDoItem2 = new ToDoItem("2");
+        ToDoItem toDoItem3 = new ToDoItem("3");
         toDoRepository.save(toDoItem1);
         toDoRepository.save(toDoItem2);
         toDoRepository.save(toDoItem3);
