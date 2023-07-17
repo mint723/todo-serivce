@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container" style="max-width: 600px">
+  <div class="py-5 text-center">
+    <h2>To Do List</h2>
+  </div>
+  <div class="row">
+    <div class="col">
+      <form action="toDoItems.html" method="post">
+      <input type="text" placeholder="할 일 적기"/>
+      <button class="w-100 btn btn-primary btn-lg" type="submit">
+        추가
+      </button>
+      </form>
+    </div>
+  </div>
+  <hr class="my-4">
+  <div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>To Do</th>
+        <th>status</th>
+        <th>action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>1</td>
+        <td><a href="toDo.html">할일</a></td>
+        <td>N</td>
+        <td>
+          <form action="toDoItems.html" method="post">
+            <button type="submit">
+              완료
+            </button>
+            <button type="submit">
+              삭제
+            </button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div> <!-- /container -->
+</body>
+</html>
