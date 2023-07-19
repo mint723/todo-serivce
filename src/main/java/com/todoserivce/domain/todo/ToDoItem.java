@@ -11,4 +11,7 @@ public class ToDoItem {
     public ToDoItem(String context) {
         this.context = context;
     }
+
+    public ToDoItem() {
+    }
 }

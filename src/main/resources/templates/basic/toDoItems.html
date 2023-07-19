@@ -35,8 +35,8 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="toDoItem : ${toDoItems}">
-                <td th:text="${toDoItem.no}">toDoItem.no</del></td>
+            <tr th:each="toDoItem, toDoItemsStat : ${toDoItems}">
+                <td th:text="${toDoItemsStat.count}">순서</del></td>
                 <td th:if="${toDoItem.status}" style="text-decoration: line-through;">
                     <span th:text="${toDoItem.context}">할일</span>
                 </td>
