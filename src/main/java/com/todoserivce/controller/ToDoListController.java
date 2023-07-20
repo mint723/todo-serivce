@@ -19,13 +19,13 @@ public class ToDoListController {
     private final ToDoRepository toDoRepository;
 
     @GetMapping("/toDoItems")
-    public String GetToDoItems(Model model){
+    public String getToDoItems(Model model){
         List<ToDoItem> toDoItems = toDoRepository.findAll();
         model.addAttribute("toDoItems",toDoItems);
         return "basic/toDoItems";
     }
     @PostMapping("/toDoItems")
-    public String PostToDoItems(@ModelAttribute ToDoItem toDoItem, Model model) throws SQLException {
+    public String postToDoItems(@ModelAttribute ToDoItem toDoItem, Model model) throws SQLException {
         toDoRepository.save(toDoItem);
         List<ToDoItem> toDoItems = toDoRepository.findAll();
         model.addAttribute("toDoItems",toDoItems);
@@ -61,9 +61,6 @@ public class ToDoListController {
     @PostMapping("/toDoItem/{toDoItemNo}")
     public String updateContext(@PathVariable Long toDoItemNo, @RequestParam String context){
         toDoRepository.contextUpdate(toDoItemNo,context);
-//        ToDoItem toDoItem = toDoRepository.findByNo(toDoItemNo);
-//        toDoItem.setContext(context);
-//        System.out.println(context);
 
         return "redirect:/basic/toDoItems";
     }
