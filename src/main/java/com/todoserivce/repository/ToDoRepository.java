@@ -13,6 +13,7 @@ public interface ToDoRepository {
     List<ToDoItem> findAll();
 
     void contextUpdate(Long no, String context);
+
     void statusUpdate(Long no);
 
     void deleteItem(Long no);

@@ -10,7 +10,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
 @RequiredArgsConstructor
 public class ToDoDbRepository implements ToDoRepository {
     private final DataSource dataSource;

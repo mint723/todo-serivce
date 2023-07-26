@@ -16,6 +16,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ToDoListController {
 
+//    @Autowired
+//    private DataSource dataSource;
+//
+//    ToDoRepository toDoRepository = new ToDoDbRepository(dataSource);
+
     private final ToDoRepository toDoRepository;
 
     @GetMapping("/toDoItems")
@@ -24,6 +29,7 @@ public class ToDoListController {
         model.addAttribute("toDoItems",toDoItems);
         return "basic/toDoItems";
     }
+
     @PostMapping("/toDoItems")
     public String postToDoItems(@ModelAttribute ToDoItem toDoItem, Model model) throws SQLException {
         toDoRepository.save(toDoItem);
@@ -42,18 +48,13 @@ public class ToDoListController {
 
     @PostMapping("status/{toDoItemNo}")
     public String done(@PathVariable Long toDoItemNo){
-        ToDoItem toDoItem = toDoRepository.findByNo(toDoItemNo);
         toDoRepository.statusUpdate(toDoItemNo);
-        System.out.println(toDoItem.getNo());
-        System.out.println(toDoItem.getContext());
-        System.out.println(toDoItem.getStatus());
         return "redirect:/basic/toDoItems";
     }
 
     @PostMapping("update/{toDoItemNo}")
     public String update(@PathVariable Long toDoItemNo, Model model){
         ToDoItem toDoItem = toDoRepository.findByNo(toDoItemNo);
-        System.out.println(toDoItem.getNo());
         model.addAttribute("toDoItem",toDoItem);
         return "basic/toDoItem";
     }
@@ -61,11 +62,6 @@ public class ToDoListController {
     @PostMapping("/toDoItem/{toDoItemNo}")
     public String updateContext(@PathVariable Long toDoItemNo, @RequestParam String context){
         toDoRepository.contextUpdate(toDoItemNo,context);
-
         return "redirect:/basic/toDoItems";
     }
-
-
-
-
 }
