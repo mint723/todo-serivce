@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface ToDoRepository {
-    ToDoItem save(ToDoItem toDoItem) throws SQLException;
+    ToDoItem save(ToDoItem toDoItem);
 
     ToDoItem findByNo(Long no);
 

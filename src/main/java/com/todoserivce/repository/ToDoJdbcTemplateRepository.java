@@ -8,22 +8,17 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 
-@Repository
 @RequiredArgsConstructor
 public class ToDoJdbcTemplateRepository implements ToDoRepository{
 
     private final JdbcTemplate jdbcTemplate;
 
     @Override
-    public ToDoItem save(ToDoItem toDoItem) throws SQLException {
+    public ToDoItem save(ToDoItem toDoItem){
         SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
         jdbcInsert.withTableName("toDoItem").usingGeneratedKeyColumns("no");
 
@@ -39,8 +34,7 @@ public class ToDoJdbcTemplateRepository implements ToDoRepository{
     @Override
     public ToDoItem findByNo(Long no) {
         List<ToDoItem> toDoItems = jdbcTemplate.query("select * from toDoItem where no ="+no, toDoItemRowMapper());
-        System.out.println(toDoItems);
-        return toDoItems.get(0);
+        return toDoItems.iterator().next();
     }
 
     @Override

@@ -3,18 +3,18 @@ package com.todoserivce.repository;
 import com.todoserivce.domain.todo.ToDoItem;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @RequiredArgsConstructor
 public class ToDoDbRepository implements ToDoRepository {
     private final DataSource dataSource;
     @Override
-    public ToDoItem save(ToDoItem toDoItem) throws SQLException {
+    public ToDoItem save(ToDoItem toDoItem){
         String sql = "insert into toDoItem(context,status) values(?,?)";
 
         Connection conn = null;
@@ -25,7 +25,6 @@ public class ToDoDbRepository implements ToDoRepository {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1,toDoItem.getContext());
-//            pstmt.setString(2,"f");
             pstmt.setBoolean(2,false);//추가
             pstmt.executeUpdate();
             rs= pstmt.getGeneratedKeys();

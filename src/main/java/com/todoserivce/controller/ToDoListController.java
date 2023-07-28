@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Controller
@@ -31,7 +30,7 @@ public class ToDoListController {
     }
 
     @PostMapping("/toDoItems")
-    public String postToDoItems(@ModelAttribute ToDoItem toDoItem, Model model) throws SQLException {
+    public String postToDoItems(@ModelAttribute ToDoItem toDoItem, Model model){
         toDoRepository.save(toDoItem);
         List<ToDoItem> toDoItems = toDoRepository.findAll();
         model.addAttribute("toDoItems",toDoItems);
@@ -46,7 +45,7 @@ public class ToDoListController {
         return "redirect:/basic/toDoItems";
     }
 
-    @PostMapping("status/{toDoItemNo}")
+    @PostMapping("statusUpdate/{toDoItemNo}")
     public String done(@PathVariable Long toDoItemNo){
         toDoRepository.statusUpdate(toDoItemNo);
         return "redirect:/basic/toDoItems";
