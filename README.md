@@ -5,3 +5,6 @@
 
 ### [2차 FIX(2023. 07. 19)](https://velog.io/@mint723/todo-service-2%EC%B0%A8-fix23.07.19)
     
+### [3차 FIX(2023. 07. 26)](https://velog.io/@mint723/todo-service-3%EC%B0%A8-fix23.07.26)
+
+### [4차 FIX(2023. 07. 29)](https://velog.io/@mint723/todo-service-4%EC%B0%A8-fix23.07.29)
