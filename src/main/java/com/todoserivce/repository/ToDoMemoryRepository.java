@@ -1,11 +1,13 @@
 package com.todoserivce.repository;
 
 import com.todoserivce.domain.todo.ToDoItem;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 public class ToDoMemoryRepository implements ToDoRepository {
     private static final Map<Long, ToDoItem> Store = new HashMap<>();
     private static Long sequence = 0L;
@@ -36,7 +38,8 @@ public class ToDoMemoryRepository implements ToDoRepository {
 
     @Override
     public void statusUpdate(Long no) {
-
+        ToDoItem toDoItem = findByNo(no);
+        toDoItem.setStatus(!toDoItem.getStatus());
     }
 
     @Override

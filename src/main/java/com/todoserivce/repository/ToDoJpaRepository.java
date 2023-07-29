@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-@Repository
+
 @RequiredArgsConstructor
 public class ToDoJpaRepository implements ToDoRepository{
 

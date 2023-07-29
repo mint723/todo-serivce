@@ -1,6 +1,7 @@
 package com.todoserivce.repository;
 
 import com.todoserivce.domain.todo.ToDoItem;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.List;

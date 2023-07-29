@@ -2,17 +2,19 @@ package com.todoserivce.controller;
 
 
 import com.todoserivce.domain.todo.ToDoItem;
+import com.todoserivce.repository.ToDoDbRepository;
 import com.todoserivce.repository.ToDoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 @Controller
 @RequestMapping("/basic")
-@RequiredArgsConstructor
 public class ToDoListController {
 
 //    @Autowired
@@ -20,7 +22,12 @@ public class ToDoListController {
 //
 //    ToDoRepository toDoRepository = new ToDoDbRepository(dataSource);
 
+    @Autowired
     private final ToDoRepository toDoRepository;
+
+    public ToDoListController(ToDoRepository toDoRepository) {
+        this.toDoRepository = toDoRepository;
+    }
 
     @GetMapping("/toDoItems")
     public String getToDoItems(Model model){
